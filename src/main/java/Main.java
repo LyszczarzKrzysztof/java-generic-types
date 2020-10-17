@@ -1,13 +1,16 @@
-
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Ship marinerShip = new Ship();
-        marinerShip.add(new Merchant("Jan","Nowak"));
-        Mariner mariner = marinerShip.findBySurname("Nowak");
-        System.out.println(((Pirate)mariner).cannonShot());
+        Ship<Pirate> pirateShip = new Ship<>();
+        pirateShip.add(new Pirate("Jan", "Nowak"));
+        Pirate pirate = pirateShip.findBySurname("Nowak");
+        System.out.println(pirate.cannonShot());
 
-
+        Ship<Merchant> merchantShip = new Ship<>();
+        merchantShip.add(new Merchant("Karol", "Wiśniewski"));
+        Merchant merchant = merchantShip.findBySurname("Wiśniewski");
+        System.out.println(merchant.tradeSummary(Arrays.asList(1D, 2D, 3D, 4D, 40D)));
 
 
 //        UWAGA! jesli dodamy marinera jako merchanta : to rzutowanie na Pirate wywoła błąd!!!!
