@@ -6,10 +6,10 @@ public class Merchant extends Mariner {
         super(name, surname);
     }
 
-    public Double tradeSummary(List<Double> doubles) {
+    public Double tradeSummary(List<? extends Number> doubles) {
         Double sum = Double.valueOf(0);
-        for (Double s : doubles) {
-            sum+=s;
+        for (Number s : doubles) {
+            sum+=s.doubleValue();
         }
 
         return sum;
